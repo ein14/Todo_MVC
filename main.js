@@ -16,7 +16,7 @@ var todoStorage = {
   }
 }
 
-new Vue({
+var app = new Vue({
   el: '#app',
   data: {
     todos: [],
@@ -93,7 +93,7 @@ new Vue({
     // 削除の処理
     doRemove: function (item) {
       var index = this.todos.indexOf(item)
-      this.this.todos.splice(index, 1)
+      this.todos.splice(index, 1)
     }
 
   }

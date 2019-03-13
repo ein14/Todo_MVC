@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Vue.js App</title>
@@ -21,16 +21,19 @@
           <!-- [1] ここに <tr> で ToDo の要素を1行づつ繰り返し表示したい -->
           <tr
           v-for="item in computedTodos"
-          v-bind:key="item.id">
+          v-bind:key="item.id"
+          v-bind:class="{done:item.state}">
             <th>{{ item.id }}</th>
             <td>{{ item.comment }}</td>
             <td class="state">
-              <button v-on:click="doChangeState(item)">{{ labels[item.state] }}
+              <button v-on:click="doChangeState(item)">
+                {{ labels[item.state] }}
               </button>
             </td>
             <td class="button">
               <!-- 削除ボタンのモック -->
-              <botton v-on:click.ctrl="doRemove(item)">削除
+              <botton v-on:click="doRemove(item)">
+                削除
               </botton>
             </td>
           </tr>
@@ -43,13 +46,9 @@
         <!-- 追加ボタンのモック -->
         <button type="submit">追加</button>
       </form>
-
-
-      <!-- 絞込みラジオボタン -->
-      <!-- Todo テーブル -->
-      <!-- 新規登録フォーム -->
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
   </body>
 </html>

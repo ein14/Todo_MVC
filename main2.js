@@ -62,7 +62,7 @@ var app = new Vue({
         return this.remaining === 0
       },
       set: function(value) {
-        this.todos.forEach(function(todo)) {
+        this.todos.forEach(function(todo){
           todo.completed = value
         })
     }
@@ -81,7 +81,7 @@ methods: {
       return
     }
     this.todos.push({
-      id: todoStorage.uid++ // TODO
+      id: todoStorage.uid++, // TODO
       title: value,
       completed: false
     })

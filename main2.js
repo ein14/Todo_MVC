@@ -127,7 +127,7 @@ directives: {
 // handle routing
 function onHashChange() {
   var visibility = window.location.hash.replace(/#\/?/, '')
-  if (filters[visibility])
+  if (filters[visibility]){
     app.visibility = visibility
 } else {
   window.location.hash = ''

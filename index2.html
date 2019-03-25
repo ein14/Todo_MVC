@@ -14,7 +14,7 @@
     </header>
     <section class="main" v-show="todos.length" v-cloak>
       <input class="togggle-all" type="checkbox" v-model="allDone">
-      <ul class "todo-list">
+      <ul class="todo-list">
         <li v-for="todo in filteredTodos" class="todo" :key="todo.id" :class="{ completed: todo.completed, editing: todo == editedTodo }">
           <div class="view">
             <input class="toggle" type="checkbox" v-model="todo.completed">

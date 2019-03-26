@@ -35,7 +35,7 @@ var filters = {
 // var Vue instance
 var app = new Vue({
   data: {
-    todos: [],//todoStorage.fetch(), // fetch の使い方
+    todos:  todoStorage.fetch(),
     newTodo: '',
     editedTodo: null,
     visibility: 'all'
@@ -90,7 +90,7 @@ var app = new Vue({
     },
 
     removeTodo: function(todo) {
-      this.todos.splice(this.todos.indexof(todo), 1)
+      this.todos.splice(this.todos.indexOf(todo), 1)
     },
     editTodo: function(todo) {
       this.beforeEditCache = todo.title

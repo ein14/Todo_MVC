@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="main2.css">
+  <link rel="stylesheet" type="text/css" href="main2.css","http://unpkg.com/iview/dist/styles/iview.css">
 </head>
 
 <body>
@@ -14,22 +14,22 @@
     </header>
     <section class="main" v-show="todos.length" v-cloak>
       <input class="togggle-all" type="checkbox" v-model="allDone">
-      <ul class="todo-list">
+      <ol class="todo-list">
         <li v-for="todo in filteredTodos" class="todo" :key="todo.id" :class="{ completed: todo.completed, editing: todo == editedTodo }">
           <div class="view">
             <input class="toggle" type="checkbox" v-model="todo.completed">
             <label @dblclick="editTodo(todo)"> {{ todo.title }}</label>
-            <button class="destroy" @click="removeTodo(todo)"></button>
+            <i-button class="destroy" type="primary" @click="removeTodo(todo)">削除</i-button>
           </div>
           <input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
         </li>
-      </ul>
+      </ol>
     </section>
     <footer class="footer" v-show="todos.length" v-cloak>
       <span class="todo-count">
         <strong>{{ remaining }}</strong>
         {{ remaining | pluralize }} left </span>
-      <ul class="filters">
+      <ul class="filters" style="list-style:none">
         <li><a href="#/all" :class="{ selected: visibility == 'all'}">All</a></li>
         <li><a href="#/active" :class="{selected: visibility == 'active'}">Active</a></li>
         <li><a href="#/completed" :class="{selected: visibility == 'completed'}">Completed</a></li>
@@ -37,11 +37,13 @@
       <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
         Clear completed </button>
     </footer>
-  </section>
+
   <footer class="info">
     <p>Double-click to edit a todo</p>
   </footer>
+  </section>
   <script src="vue.js"></script>
+  <script src="http://unpkg.com/iview/dist/iview.min.js"></script>
   <script src="main2.js"></script>
 
 </body>
